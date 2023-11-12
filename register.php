@@ -26,17 +26,22 @@
 				'$member_pw_1'
 		)";
 
-		if($mysqli->query($sql)){ 
-		  echo '<script>alert("success inserting")</script>'; 
-		  echo "<script> location.href = 'login.html'; </script>";
-
-		}else{ 
-		  echo '<script>alert("fail to insert sql")</script>';
-		  echo "<script> location.href = 'login.html'; </script>";
-
+		if (empty($member_email) || empty($member_pw_1) || empty($member_name)) {
+			echo '<script>alert("모든 필수 정보를 입력하세요.")</script>';
+			echo "<script> location.href = 'login.html'; </script>";
+		} else {
+			// 회원가입 쿼리
+			$sql = "INSERT INTO moneyMember (member_name, member_email, member_pw_1) VALUES ('$member_name', '$member_email', '$member_pw_1')";
+		
+			if ($mysqli->query($sql)) {
+				echo '<script>alert("회원가입 성공")</script>';
+				echo "<script> location.href = 'login.html'; </script>";
+			} else {
+				echo '<script>alert("회원가입 실패")</script>';
+				echo "<script> location.href = 'login.html'; </script>";
+			}
+		
+			mysqli_close($mysqli);
 		}
-
-		mysqli_close($mysqli);
-	  
-	?>
+		?>
 </html>
