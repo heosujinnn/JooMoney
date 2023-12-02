@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo $row['money_history'] . ". ";
         echo $row['money_price'] . " ";
     }
-    // 삭제 후 화면 이동
     echo '<script>alert("삭제되었습니다.");</script>';
     echo '<script>window.location.href = "money_list.php";</script>';
 }

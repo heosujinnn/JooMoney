@@ -52,7 +52,7 @@
       margin: 15px 0;
     }
 
-    button {
+    button.save-button,button.history-button {
       border-radius: 20px;
       border: 1px solid #FF4B2B;
       background-color: #FF4B2B;
@@ -63,6 +63,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: transform 80ms ease-in;
+      margin-bottom: 15px; 
     }
 
     button:active {
@@ -128,7 +129,8 @@
         <input type="text" name="history"><br><br><br><br>
         <label>금액</label>
         <input type="number" name="price"><br><br><br><br>
-        <button>저장</button>
+        <button type="submit" class="save-button">저장</button>
+         <button type="button"class="history-button">내역보기</button>
       </form>
     </div>
     <div class="form-container output">

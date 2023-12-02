@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>주Money</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>주Money</title>
 </head>
+
 <body>
-    <h2>Joo Money 입출금 내역 입력하기</h2>
-<div class="container" id="container">
-  <div class="form-container input">
-    <form action="input.html" method="post">
+  <h2>Joo Money 입출금 내역 입력하기</h2>
+  <div class="container" id="container">
+    <div class="form-container input">
+      <form action="input.html" method="post">
         <h1>입금</h1>
-      <span>입금(용돈, 월급, 알바비와 꽁돈을 입금해보아요).</span><br>
-      <button>입금</button>
-    </form>
-  </div>
-  <div class="form-container output">
-    <form action="output.html" method="post">
+        <span>입금(용돈, 월급, 알바비와 꽁돈을 입금해보아요).</span><br>
+        <button>입금</button>
+      </form>
+    </div>
+    <div class="form-container output">
+      <form action="output.html" method="post">
         <h1>지출금</h1>
-      <span>지출(탕후루, 의류, 맛있는 밥을 얼마나 먹은지 확인해보아요).</span><br>
-      <button>지출</button>
-    </form>
+        <span>지출(탕후루, 의류, 맛있는 밥을 얼마나 먹은지 확인해보아요).</span><br>
+        <button>지출</button>
+      </form>
+      <form id="moneyListForm" action="money_list.php">
+        <br><br>
+        <button type="button" style="background-color: #3366ff; 
+      color: white; 
+      padding: 10px 20px; 
+      border: none; 
+      text-align: center; 
+      text-decoration: none; 
+      display: block; 
+      margin: 0 auto; 
+      font-size: 16px; 
+      cursor: pointer; 
+      border-radius: 8px;" class="history-button" onclick="moveMoneyList()">입/출금 내역보기</button>
+      </form>
+    </div>
   </div>
-</div>
 </body>
+
+<script>
+  function moveMoneyList() {
+    window.location.href = "money_list.php";
+  }
+</script>
+
 </html>
