@@ -16,7 +16,7 @@ if (isset($_SESSION['user_id'])) {
         echo "<script> location.href = 'money_list.php'; </script>";
 
     } else {
-        echo '<script>alert("fail to insert sql")</script>';
+        echo '<script>alert("fail to insert sql"); window.location.href = "output.html"; </script>';
 
     }
 
