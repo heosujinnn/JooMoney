@@ -101,7 +101,11 @@
                                 echo "<td>+" . $row['money_price'] . "</td>";
                                 echo "<td>";
                                 echo "<div class='button-container'>";
-                                echo "<a href='input.html'><button type='button'>수정</button></a>";
+
+                                echo "<form method='post' action='money_update.php'>";
+                                echo "<button type='submit' name='a1' value='" . $row['no'] . "'>수정</button>";
+                                echo "</form>";                  
+                               
                                 echo "<form method='post' action='money_delete.php'>";
                                 echo "<button type='submit' name='b1' value='" . $row['no'] . "'>삭제</button>";
                                 echo "</form>";
