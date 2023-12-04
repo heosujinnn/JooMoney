@@ -52,8 +52,7 @@
       margin: 15px 0;
     }
 
-    button.save-button,
-    button.history-button {
+    button {
       border-radius: 20px;
       border: 1px solid #FF4B2B;
       background-color: #FF4B2B;
@@ -64,7 +63,6 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       transition: transform 80ms ease-in;
-      margin-bottom: 15px;
     }
 
     button:active {
@@ -121,21 +119,37 @@
 </head>
 
 <body>
-  <h2>입금 내역 작성</h2>
+  <h2>출금 내역 작성</h2>
   <div class="container" id="container">
-    <div class="form-container input">
-      <form method="post" action="money_input.php">
-        <h1>입금 내역</h1><br><br>
-        <label>내역</label>
-        <input type="text" name="history"><br><br><br><br>
-        <label>금액</label>
-        <input type="number" name="price"><br><br><br><br>
-        <button type="submit" class="save-button">저장</button>
-      </form>
-    </div>
     <div class="form-container output">
-    </div>
-  </div>
+    <form method="post">
+  <h1>출금 내역</h1><br><br>
+  <label>내역</label>
+  <input type="text" name="money_history"><br><br><br><br>
+  <label>금액</label>
+  <input type="number" name="money_price"><br><br><br><br>
+  <input type="hidden" name="a1" value="<?php echo $_POST['a1']; ?>">
+  <button type="submit" name="submit">저장</button>
+</form>
+
+<?php
+$con = mysqli_connect("localhost", "soojin", "1234", "test");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $money_history = $_POST["money_history"];
+    $money_price = $_POST["money_price"];
+    $a1_u = $_POST["a1"];
+
+    $sql = "UPDATE moneyOutput SET money_history = '$money_history', money_price = '$money_price' WHERE no = '$a1_u'";
+
+    // 쿼리 실행
+    mysqli_query($con, $sql);
+
+    // 성공 메시지 출력 및 페이지 이동
+    echo '<script>alert("수정되었습니다.");</script>';
+    echo '<script>window.location.href = "money_list.php";</script>';
+}
+?>
 </body>
 
 </html>
